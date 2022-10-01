@@ -1,5 +1,3 @@
-
-from logging import root
 from tkinter import Tk
 
 from tkinter import *
@@ -7,7 +5,11 @@ root = Tk()   #putting tkinter into a root file
 
 root.geometry("500x300")   #Creating a window to show the registration form
 root.title("Registration Form")
-Label(root, text="Registration Form", font="Helvetica 20 bold").grid(row=0, column=5)
+
+def sendvalues():
+    print("Data sent")  #Print data sent on the terminal
+
+Label(root, text="Please Fill the Form", font="Helvetica 20 bold").grid(row=0, column=5)
 
 #Creation of the various required fields
 #********************* START *********************
@@ -48,6 +50,14 @@ email_entry.grid(row=2, column=3)
 phone_entry.grid(row=3, column=3)
 gender_entry.grid(row=4, column=3)
 payment_mode_entry.grid(row=5, column=3)
+
+#Creating a remember me checkbox
+rmber = Checkbutton(text="remember me?", variable=check_value)
+rmber.grid(row=6, column=3)
 #********************* END *********************
+
+#Creating a submit button
+Button(text="Submit", command=sendvalues).grid(row=7, column=3)
+
 #Making root file always main loop
 root.mainloop()
